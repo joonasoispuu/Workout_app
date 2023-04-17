@@ -4,6 +4,8 @@ using Microsoft.UI.Windowing;
 using Windows.Graphics;
 #endif
 
+using System.Reflection;
+
 namespace WorkoutApp;
 
 public partial class App : Application
@@ -28,8 +30,12 @@ public partial class App : Application
         });
 #endif
 
+        Image image = new Image
+        {
+            Source = ImageSource.FromResource("WorkoutApp.Resources.Images.cog.svg", typeof(WorkoutApp.App).GetTypeInfo().Assembly)
+        };
 
+        //MainPage = new AppShell();
 
-        MainPage = new AppShell();
     }
 }
