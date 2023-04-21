@@ -17,13 +17,13 @@
         <Shell>
             <TabBar x:Name="Tabs">
                 <Tab Title="Settings" Icon="cog.svg">
-                    <ShellContent ContentTemplate="{DataTemplate views:NewPage1}"/>
+                    <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}"/>
                 </Tab>
                 <Tab Title="Profile" Icon="account.svg">
-                    <ShellContent ContentTemplate="{DataTemplate views:NewPage1}"/>
+                    <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
                 </Tab>
                 <Tab Title="Exercises" Icon="dumbbell.svg">
-                    <ShellContent ContentTemplate="{DataTemplate views:NewPage1}"/>
+                    <ShellContent ContentTemplate="{DataTemplate views:ExercisePage}"/>
                 </Tab>
             </TabBar>
         </Shell>
