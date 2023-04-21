@@ -5,9 +5,10 @@
              xmlns:local="clr-namespace:WorkoutApp"
              x:DataType="local:ExerciseViewModel">
     <StackLayout Padding="20">
-        <Label Text="Exercise" FontSize="Large" />
+        <Label Text="Abs" FontSize="Large" />
         <Label Text="{Binding CurrentExercise.Name}" x:Name="ExerciseNameLabel" FontSize="Medium" />
-        <Label Text="{Binding CurrentExercise.Reps}" x:Name="RepsLabel" FontSize="Medium" />
+        <Label Text="{Binding CurrentExercise.Reps}" x:Name="ExerciseRepsLabel" FontSize="Medium" />
+        <Label Text="{Binding CurrentExercise.Seconds}" x:Name="ExerciseTimerLabel" FontSize="Medium" />
         <Label Text="{Binding ExerciseNumber}" x:Name="ExerciseCountLabel" FontSize="Small" />
         <Button x:Name="DoneButton" Text="Done" Command="{Binding DoneCommand}" Clicked="DoneButton_Clicked" />
     </StackLayout>
