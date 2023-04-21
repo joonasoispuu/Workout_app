@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkoutApp.Views.ExercisePage"
+             xmlns:local="clr-namespace:WorkoutApp.Views"
+             BindingContext="{x:Reference Name=MyExercisePage}"
+             x:Name="MyExercisePage"
+             Title="MyExercisePage">
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image Source="armsandchest.jpg" HeightRequest="200" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToPage1Command}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="abs.jpg" HeightRequest="200" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToPage2Command}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

@@ -17,6 +17,7 @@ public partial class App : Application
     {
         InitializeComponent();
 
+
 #if WINDOWS
 		Microsoft.Maui.Handlers.WindowHandler.Mapper.AppendToMapping(nameof(IWindow), (handler, view) =>
 		{
