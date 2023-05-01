@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkoutApp.Views.customexercisePage"
-             Title="customexercisePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="Custom Exercises">
+        <ContentPage.Content>
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="Begin Custom Exercises"  FontSize="30"  BackgroundColor="Transparent"  TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Clicked="BeginCustomExercises_Clicked"/>
+                <Button Text="Add Custom Exercises" FontSize="30"  BackgroundColor="Transparent" TextColor="Black" VerticalOptions="FillAndExpand"  HorizontalOptions="FillAndExpand" Clicked="AddCustomExercises_Clicked"/>
+            </StackLayout>
+        </ContentPage.Content>
 </ContentPage>

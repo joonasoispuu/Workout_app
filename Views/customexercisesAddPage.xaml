@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorkoutApp.Views.customexercisesAddPage"
+             xmlns:behaviors="clr-namespace:WorkoutApp"
+             Title="Add Exercises">
+    <StackLayout>
+        <Entry x:Name="ChooseExerciseName" 
+               Placeholder="Exercise Name"
+               Margin="15"
+               Text="{Binding ChooseExerciseName}" />
+        <StackLayout Orientation="Horizontal" Margin="15">
+            <Label Text="Exercise Time (s)" VerticalOptions="Center" />
+            <Entry x:Name="ChooseExerciseTimer" WidthRequest="150" Placeholder="Time" Margin="10,0,0,0" Keyboard="Numeric" MaxLength="3" Text="{Binding ChooseExerciseTimer}" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" Margin="15">
+            <Label Text="Reps" VerticalOptions="Center" />
+            <Entry x:Name="ChooseExerciseReps" WidthRequest="150" Placeholder="Reps" Margin="10,0,0,0" Keyboard="Numeric" MaxLength="3" Text="{Binding ChooseExerciseReps}" />
+        </StackLayout>
+        <Button x:Name="btnNewExercise" Text="Done" Margin="15" Clicked="OnNewExercise_Clicked" />
+    </StackLayout>
+</ContentPage>

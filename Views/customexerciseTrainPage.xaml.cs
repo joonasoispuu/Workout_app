@@ -1,6 +1,6 @@
 namespace WorkoutApp.Views
 {
-    public partial class absworkoutPage : ContentPage
+    public partial class customexerciseTrainPage : ContentPage
     {
         private readonly ExerciseDbContext _dbContext;
         public ExerciseViewModel ViewModel { get; set; }
@@ -9,7 +9,7 @@ namespace WorkoutApp.Views
         private int _totalExercises;
         private System.Timers.Timer _timer;
 
-        public absworkoutPage()
+        public customexerciseTrainPage()
         {
             InitializeComponent();
 
@@ -24,34 +24,10 @@ namespace WorkoutApp.Views
                 _dbContext.SaveChanges();
             }
 
-            //Add exercises values to Abs category when the database is empty
 
-            if (!_dbContext.Exercises.Any(x => x.Category == "Abs"))
-            {
-                _dbContext.Exercises.AddRange(new List<ExerciseModel>
-                {
-                    new ExerciseModel { Name = "Jumping Jacks", Reps = 0, Seconds = 30, Category = "Abs" },
-                    new ExerciseModel { Name = "Heel Touch ", Reps = 30, Seconds = 0, Category = "Abs" },
-                    new ExerciseModel { Name = "V-up", Reps = 0, Seconds = 16, Category = "Abs" },
-                    new ExerciseModel { Name = "Crucnhes", Reps = 30, Seconds = 0, Category = "Abs" },
-                    new ExerciseModel { Name = "Flutter kicks", Reps = 0, Seconds = 40, Category = "Abs" },
-                    new ExerciseModel { Name = "Alt V-up", Reps = 0, Seconds = 16, Category = "Abs" },
-                    new ExerciseModel { Name = "Push-up&rotation ", Reps = 0, Seconds = 24, Category = "Abs" },
-                    new ExerciseModel { Name = "Mountain Climbers", Reps = 30, Seconds = 0, Category = "Abs" },
-                    new ExerciseModel { Name = "V-cruch", Reps = 0, Seconds = 10, Category = "Abs" },
-                    new ExerciseModel { Name = "Seated abs clockwise circle", Reps = 0, Seconds = 16, Category = "Abs" },
-                    new ExerciseModel { Name = "Seated abs counterclockwise circles", Reps = 0, Seconds = 16, Category = "Abs" },
-                    new ExerciseModel { Name = "Plank ", Reps = 0, Seconds = 60, Category = "Abs" },
-              });
+            _currentExercise = _dbContext.Exercises.FirstOrDefault(x => x.Category == "Custom" && !x.Completed);
 
-
-                _dbContext.SaveChanges();
-            }
-
-            //Set current exercise to first exercise in the database
-            _currentExercise = _dbContext.Exercises.FirstOrDefault(x => x.Category == "Abs" && !x.Completed);
-
-            _totalExercises = _dbContext.Exercises.Count(x => x.Category == "Abs");
+            _totalExercises = _dbContext.Exercises.Count(x => x.Category == "Custom");
             _exerciseCount = 1;
 
             UpdateExerciseDisplay();
@@ -79,7 +55,7 @@ namespace WorkoutApp.Views
                 timer.Elapsed += (sender, e) =>
                 {
                     timerValue--;
-                   MainThread.InvokeOnMainThreadAsync(() =>
+                    MainThread.InvokeOnMainThreadAsync(() =>
                     {
                         ExerciseTimerLabel.Text = $"Time left: {timerValue}s";
                     });
@@ -107,23 +83,20 @@ namespace WorkoutApp.Views
                 _timer.Stop();
             }
 
-            // Marks current exercise as complete
             _currentExercise.Completed = true;
             _dbContext.SaveChanges();
 
             if (_exerciseCount < _totalExercises)
             {
-                // Get the next exercise in database
-                _currentExercise = _dbContext.Exercises.FirstOrDefault(x => x.Category == "Abs" && !x.Completed);
+                _currentExercise = _dbContext.Exercises.FirstOrDefault(x => x.Category == "Custom" && !x.Completed);
                 _exerciseCount++;
 
                 UpdateExerciseDisplay();
             }
             else
             {
-                await DisplayAlert("Workout Complete", "Congratulations, you have completed the abs workout routine!", "OK");
+                await DisplayAlert("Workout Complete", "Congratulations, you have completed your custom exercises!", "OK");
 
-                // Reset the data
                 var exercises = _dbContext.Exercises.ToList();
                 foreach (var exercise in exercises)
                 {

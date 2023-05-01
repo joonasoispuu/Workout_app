@@ -73,7 +73,7 @@ namespace WorkoutApp.Views
             timer.Elapsed += (sender, e) =>
             {
                 timerValue--;
-                Device.BeginInvokeOnMainThread(() =>
+               MainThread.InvokeOnMainThreadAsync(() =>
                 {
                     ExerciseTimerLabel.Text = $"Time left: {timerValue}s";
                 });
@@ -81,7 +81,7 @@ namespace WorkoutApp.Views
                 if (timerValue == 0)
                 {
                     timer.Stop();
-                    Device.BeginInvokeOnMainThread(() => DoneButton_Clicked(null, null));
+                   MainThread.InvokeOnMainThreadAsync(() => DoneButton_Clicked(null, null));
                 }
             };
             timer.Start();
