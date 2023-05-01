@@ -1,5 +1,5 @@
-﻿using System.Windows.Input;
-using System.ComponentModel;
+﻿using System.ComponentModel;
+using System.Windows.Input;
 
 namespace WorkoutApp
 {
@@ -58,6 +58,22 @@ namespace WorkoutApp
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void AddCustomExercise(ExerciseModel exercise)
+        {
+            using (var db = new ExerciseDbContext())
+            {
+                db.Exercises.Add(exercise);
+                db.SaveChanges();
+                _exercises.Add(exercise);
+                SetExerciseDetails();
+            }
+        }
+
+        public List<ExerciseModel> GetCustomExercises()
+        {
+            return _exercises.Where(exercise => exercise.Category == "Custom").ToList();
         }
     }
 }

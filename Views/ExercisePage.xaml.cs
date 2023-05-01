@@ -11,6 +11,7 @@ public partial class ExercisePage : ContentPage
 
     public ICommand NavigateToPage1Command => new Command(async () => await NavigateToPage(new armsandchestPage()));
     public ICommand NavigateToPage2Command => new Command(async () => await NavigateToPage(new absworkoutPage()));
+    public ICommand NavigateToPage3Command => new Command(async () => await NavigateToPage(new customexercisePage()));
 
     private async Task NavigateToPage(Page page)
     {

@@ -5,21 +5,24 @@
              xmlns:local="clr-namespace:WorkoutApp.Views"
              BindingContext="{x:Reference Name=MyExercisePage}"
              x:Name="MyExercisePage"
-             Title="MyExercisePage">
-    <StackLayout>
+             Title="Exercises">
         <ScrollView>
             <StackLayout>
-                <Image Source="armsandchest.jpg" HeightRequest="200" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Image Source="armsandchest.jpg" HeightRequest="290" Aspect="AspectFit">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavigateToPage1Command}" />
                     </Image.GestureRecognizers>
                 </Image>
-                <Image Source="abs.jpg" HeightRequest="200" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Image Source="abs.jpg" HeightRequest="290" Aspect="AspectFit">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding NavigateToPage2Command}" />
                     </Image.GestureRecognizers>
                 </Image>
+                <Image Source="custom.png" HeightRequest="290" Aspect="AspectFit">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToPage3Command}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </StackLayout>
         </ScrollView>
-    </StackLayout>
 </ContentPage>
