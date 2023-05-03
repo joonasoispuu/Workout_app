@@ -19,7 +19,7 @@ public partial class customexercisePage : ContentPage
         }
         else
         {
-            await Navigation.PushAsync(new customexerciseTrainPage());
+            await Navigation.PushAsync(new CustomexerciseTrainPage());
         }
     }
 

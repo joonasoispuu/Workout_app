@@ -1,6 +1,6 @@
 namespace WorkoutApp.Views
 {
-    public partial class customexerciseTrainPage : ContentPage
+    public partial class CustomexerciseTrainPage : ContentPage
     {
         private readonly ExerciseDbContext _dbContext;
         public ExerciseViewModel ViewModel { get; set; }
@@ -9,7 +9,7 @@ namespace WorkoutApp.Views
         private int _totalExercises;
         private System.Timers.Timer _timer;
 
-        public customexerciseTrainPage()
+        public CustomexerciseTrainPage()
         {
             InitializeComponent();
 
