@@ -6,11 +6,17 @@
              x:DataType="local:ExerciseViewModel"
              Title="Arms and Chest Exercises">
     <StackLayout Padding="20">
-        <Label Text="Arms and Chest" FontSize="40" />
-        <Label Text="{Binding CurrentExercise.Name}" x:Name="ExerciseNameLabel" FontSize="Medium" Margin="0,5,0,0"/>
-        <Label Text="{Binding CurrentExercise.Reps}" x:Name="ExerciseRepsLabel" FontSize="Medium" Margin="0,20,0,0"/>
-        <Label Text="{Binding CurrentExercise.Seconds}" x:Name="ExerciseTimerLabel" FontSize="Medium" Margin="0,10,0,0"/>
-        <Label Text="{Binding ExerciseNumber}" x:Name="ExerciseCountLabel" FontSize="Small" Margin="0,20,0,0"/>
+        <Label Text="Exercise" x:Name="ExerciseText" FontSize="50" Margin="0,20,0,0" HorizontalOptions="Center"/>
+        <Label Text="{Binding CurrentExercise.Name}" x:Name="ExerciseNameLabel" FontSize="30" Margin="0,25,0,0" HorizontalOptions="Center"/>
+        <Label Text="{Binding CurrentExercise.Reps}" x:Name="ExerciseRepsLabel" FontSize="25" Margin="0,40,0,0" HorizontalOptions="Center"/>
+        <Label Text="{Binding CurrentExercise.Seconds}" x:Name="ExerciseTimerLabel" FontSize="25" Margin="0,45,0,0" HorizontalOptions="Center"/>
+        <Label Text="{Binding ExerciseNumber}" x:Name="ExerciseCountLabel" FontSize="Small" Margin="0,80,0,0" HorizontalOptions="Center"/>
+        <Label Text="Next Exercise" x:Name="NextExerciseText" FontSize="50" Margin="0,5,0,0" HorizontalOptions="Center"/>
+        <Label x:Name="NextExerciseName" FontSize="30" Margin="0,25,0,0" HorizontalOptions="Center"/>
+        <Label x:Name="NextExerciseReps" FontSize="25" Margin="0,30,0,0" HorizontalOptions="Center"/>
+        <Label x:Name="NextExerciseSeconds" FontSize="25" Margin="0,35,0,0" HorizontalOptions="Center"/>
+        <Label Text="Get Ready!" x:Name="GetReadyText" FontSize="30" Margin="0,100,0,0" HorizontalOptions="Center"/>
+        <Label x:Name="ExerciseBreakTImer" FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
         <Button x:Name="DoneButton" Text="Done" Command="{Binding DoneCommand}" Clicked="DoneButton_Clicked"/>
     </StackLayout>
 </ContentPage>
