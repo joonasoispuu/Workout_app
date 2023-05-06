@@ -62,6 +62,7 @@ namespace WorkoutApp
 
         public void AddCustomExercise(ExerciseModel exercise)
         {
+            exercise.Category = "Custom";
             using (var db = new ExerciseDbContext())
             {
                 db.Exercises.Add(exercise);
@@ -71,9 +72,22 @@ namespace WorkoutApp
             }
         }
 
+        public void DeleteCustomExercises()
+        {
+            using (var db = new ExerciseDbContext())
+            {
+                var customExercises = db.Exercises.Where(e => e.Category == "Custom").ToList();
+                db.Exercises.RemoveRange(customExercises);
+                db.SaveChanges();
+            }
+        }
+
         public List<ExerciseModel> GetCustomExercises()
         {
-            return _exercises.Where(exercise => exercise.Category == "Custom").ToList();
+            using (var db = new ExerciseDbContext())
+            {
+                return db.Exercises.Where(exercise => exercise.Category == "Custom").ToList();
+            }
         }
     }
 }
