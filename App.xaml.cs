@@ -16,6 +16,7 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
+        myShell.CurrentItem = profileItem;
 
 
 #if WINDOWS
