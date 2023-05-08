@@ -17,6 +17,6 @@
         <Label x:Name="NextExerciseSeconds" FontSize="25" Margin="0,35,0,0" HorizontalOptions="Center"/>
         <Label Text="Get Ready!" x:Name="GetReadyText" FontSize="30" Margin="0,100,0,0" HorizontalOptions="Center"/>
         <Label x:Name="ExerciseBreakTImer" FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
-        <Button x:Name="DoneButton" Text="Done" Command="{Binding DoneCommand}" Clicked="DoneButton_Clicked"/>
+        <Button x:Name="DoneButton" Text="Done" Command="{Binding DoneCommand}" Clicked="DoneButton_Clicked" Margin="30"/>
     </StackLayout>
 </ContentPage>

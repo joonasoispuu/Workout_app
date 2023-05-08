@@ -16,6 +16,7 @@ public partial class ProfilePage : ContentPage
 
     private readonly ProfileViewModel _profileViewModel;
     private UserModel _currentUser;
+    private float BMI;
 
     public ProfilePage()
     {
@@ -32,8 +33,8 @@ public partial class ProfilePage : ContentPage
             {
                 Id = 0,
                 Username = Preferences.Default.Get(USER_NAME, ""),
-                Height = Preferences.Default.Get(USER_HEIGHT, 0),
-                Weight = Preferences.Default.Get(USER_WEIGHT, 0),
+                Height = Preferences.Default.Get(USER_HEIGHT, 0f),
+                Weight = Preferences.Default.Get(USER_WEIGHT, 0f),
                 Age = Preferences.Default.Get(USER_AGE, 0)
             };
             //_currentUser = user;
@@ -92,6 +93,9 @@ public partial class ProfilePage : ContentPage
                 ChooseUserAge.Text.Length > 0)
             {
                 btnSaveUser.Text = "Edit";
+                CalculateBMI(user.Weight, user.Height, user.Age);
+
+                
             }
             //_profileViewModel.SetUserDetails(user);
         });
@@ -124,7 +128,7 @@ public partial class ProfilePage : ContentPage
                 return;
             }
 
-            int height = 0;
+            float height = 0f;
             //Checks if ChooseUserHeight.Text is empty and the value is a number
             if (string.IsNullOrWhiteSpace(ChooseUserHeight.Text))
             {
@@ -136,7 +140,7 @@ public partial class ProfilePage : ContentPage
                 return;
             }
             //Checks if ChooseUserHeight.Text value is a number
-            if (!int.TryParse(ChooseUserHeight.Text, out height))
+            if (!float.TryParse(ChooseUserHeight.Text, out height))
             {
                 await DisplayAlert("Error", "Please only enter numbers in the height field", "OK");
                 Application.Current.Dispatcher.Dispatch(() =>
@@ -164,7 +168,7 @@ public partial class ProfilePage : ContentPage
                 return;
             }
 
-            int weight = 0;
+            float weight = 0f;
             //Checks if ChooseUserWeight.Text is empty and the value is a number
             if (string.IsNullOrWhiteSpace(ChooseUserWeight.Text))
             {
@@ -176,7 +180,7 @@ public partial class ProfilePage : ContentPage
                 return;
             }
             //Checks if ChooseUserWeight.Text value is a number
-            if (!int.TryParse(ChooseUserWeight.Text, out weight))
+            if (!float.TryParse(ChooseUserWeight.Text, out weight))
             {
                 await DisplayAlert("Error", "Please only enter numbers in the weight field", "OK");
                 Application.Current.Dispatcher.Dispatch(() =>
@@ -259,6 +263,7 @@ public partial class ProfilePage : ContentPage
             _profileViewModel.SetUserDetails(user);
             btnSaveUser.Text = "Edit";
             new MyToast("Changes saved successfully").Display();
+            CalculateBMI(user.Weight, user.Height, user.Age);
 
             ChooseUsername.IsEnabled = false;
             ChooseUserHeight.IsEnabled = false;
@@ -269,7 +274,7 @@ public partial class ProfilePage : ContentPage
             ChooseUsername.IsEnabled = true;
             ChooseUserHeight.IsEnabled = true;
             ChooseUserWeight.IsEnabled = true;
-            //ChooseUserAge.IsEnabled = true;
+            ChooseUserAge.IsEnabled = true;
 
             //new MyToast("This is a Toast").Display();
 
@@ -277,6 +282,58 @@ public partial class ProfilePage : ContentPage
         }
         
 
+    }
+
+    private void CalculateBMI(float weight, float height, int age)
+    {
+        Console.WriteLine("calculateInitialBMI");
+
+        float bmiheight = height / 100; // cm -> m
+        BMI = weight / (bmiheight * bmiheight); // metric BMI
+
+        DisplayBMI(age);
+    }
+
+    private void DisplayBMI(int age)
+    {
+        String bmiString = $"BMI: {BMI:0.#}";
+        txtBMI.Text = bmiString;
+        if (age < 18)
+        {
+            txtBMIWarning.Text = "This app is made for people over the age of 18\nSome results may vary.";
+        }
+        else
+        {
+            txtBMIWarning.Text = "";
+        }
+        if (BMI < 16)
+        {
+            txtDescription.Text = "Severely Skinny";
+        }
+        else if (BMI < 17)
+        {
+            txtDescription.Text = "Moderately Skinny";
+        }
+        else if (BMI < 18.5 && BMI >= 17)
+        {
+            txtDescription.Text = "Mildly Skinny";
+        }
+        else if (BMI < 25 && BMI >= 18.5)
+        {
+            txtDescription.Text = "Healthy";
+        }
+        else if (BMI < 30 && BMI >= 25)
+        {
+            txtDescription.Text = "Overweight";
+        }
+        else if (BMI < 34.9 && BMI >= 30)
+        {
+            txtDescription.Text = "Obese";
+        }
+        else
+        {
+            txtDescription.Text = "Obese+2";
+        }
     }
 
     private async Task NavigateToPage(Page page)

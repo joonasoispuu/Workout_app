@@ -36,25 +36,6 @@ namespace WorkoutApp
 
         public void SetUserDetails(UserModel user)
         {
-            //if (_exercises != null && _exercises.Count > _currentExerciseIndex)
-            //{
-            //    CurrentExercise = _exercises[_currentExerciseIndex];
-            //    ExerciseNumber = $"Exercise {_currentExerciseIndex + 1} of {_exercises.Count}";
-            //}
-            //else
-            //{
-            //    CurrentExercise = null;
-            //    ExerciseNumber = "Congratulations! You have completed all exercises.";
-            //}
-
-            //CurrentUser.Username = user.Username;
-            //CurrentUser.Height = user.Height;
-            //CurrentUser.Weight = user.Weight;
-            //CurrentUser.Age = user.Age;
-
-            //OnPropertyChanged(nameof(CurrentUser));
-            //OnPropertyChanged(nameof(ExerciseNumber));
-
             Preferences.Default.Set(USER_NAME, user.Username);
             Preferences.Default.Set(USER_HEIGHT, user.Height);
             Preferences.Default.Set(USER_WEIGHT, user.Weight);

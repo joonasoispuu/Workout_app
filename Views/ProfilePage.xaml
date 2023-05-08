@@ -20,6 +20,7 @@
                     HorizontalOptions="Center">
                     <Entry x:Name="ChooseUsername" 
                         Placeholder="Username" 
+                        PlaceholderColor="#1849B2"
                         WidthRequest="300"
                         Text="{Binding CurrentUser.Username}" 
                         TextColor="#353535" Keyboard="Plain"
@@ -40,11 +41,12 @@
                     HorizontalOptions="Center">
                     <Entry x:Name="ChooseUserHeight" 
                         Placeholder="Height (cm)" 
+                        PlaceholderColor="#1849B2"
                         WidthRequest="300" 
                         Text="{Binding CurrentUser.Height}" 
                         TextColor="Black" 
                         Keyboard="Numeric" 
-                        MaxLength="3" 
+                        MaxLength="5" 
                         IsEnabled="False" />
                 </Border>
 
@@ -61,11 +63,12 @@
                     <Entry 
                         x:Name="ChooseUserWeight" 
                         Placeholder="Weight (kg)" 
+                        PlaceholderColor="#1849B2"
                         WidthRequest="300" 
                         Text="{Binding CurrentUser.Weight}" 
                         TextColor="Black" 
                         Keyboard="Numeric" 
-                        MaxLength="3"
+                        MaxLength="5"
                         IsEnabled="False" />
                 </Border>
 
@@ -80,6 +83,7 @@
                     HorizontalOptions="Center">
                     <Entry x:Name="ChooseUserAge" 
                         Placeholder="Age" 
+                        PlaceholderColor="#1849B2"
                         WidthRequest="300" 
                         Text="{Binding CurrentUser.Age}" 
                         TextColor="Black" 
@@ -88,6 +92,9 @@
                 </Border>
             </StackLayout>
             <Label FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            <Label x:Name="txtBMI" FontSize="40" Text="" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Label x:Name="txtDescription" FontSize="28" Text="" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Label x:Name="txtBMIWarning" FontSize="18" Text="" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
             <Button x:Name="btnSaveUser" 
                         Text="Done"
                         Clicked="OnSaveUser_Clicked" Margin="30" />

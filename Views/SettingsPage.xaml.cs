@@ -13,6 +13,7 @@ public partial class SettingsPage : ContentPage
     private async void DeleteCustomExercises_Clicked(object sender, EventArgs e)
     {
         _exerciseViewModel.DeleteCustomExercises();
+        //Preferences.Default.Clear();
         await DisplayAlert("Done", "You have deleted all your custom exercise list!", "OK");
     }
 }
