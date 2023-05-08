@@ -1,4 +1,6 @@
-﻿namespace WorkoutApp;
+﻿using CommunityToolkit.Maui;
+
+namespace WorkoutApp;
 
 public static class MauiProgram
 {
@@ -6,6 +8,7 @@ public static class MauiProgram
 	{
 		var builder = MauiApp.CreateBuilder();
 		builder
+			.UseMauiCommunityToolkit()
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{

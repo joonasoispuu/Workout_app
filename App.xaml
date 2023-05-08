@@ -14,15 +14,15 @@
     </Application.Resources>
 
     <Application.MainPage>
-        <Shell>
+        <Shell x:Name="myShell">
             <TabBar x:Name="Tabs">
-                <Tab Title="Settings" Icon="cog.svg">
+                <Tab x:Name="settingsItem"  Title="Settings" Icon="cog.svg">
                     <ShellContent ContentTemplate="{DataTemplate views:SettingsPage}"/>
                 </Tab>
-                <Tab Title="Profile" Icon="account.svg">
+                <Tab x:Name="profileItem" Title="Profile" Icon="account.svg">
                     <ShellContent ContentTemplate="{DataTemplate views:ProfilePage}"/>
                 </Tab>
-                <Tab Title="Exercises" Icon="dumbbell.svg">
+                <Tab x:Name="exercisesItem" Title="Exercises" Icon="dumbbell.svg">
                     <ShellContent ContentTemplate="{DataTemplate views:ExercisePage}"/>
                 </Tab>
             </TabBar>

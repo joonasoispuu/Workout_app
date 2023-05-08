@@ -6,3 +6,4 @@ global using Microsoft.Maui.Controls.Hosting;
 global using Microsoft.Maui.Hosting;
 global using Microsoft.Maui.Graphics;
 global using Microsoft.Maui.LifecycleEvents;
+global using WorkoutApp.Models;
