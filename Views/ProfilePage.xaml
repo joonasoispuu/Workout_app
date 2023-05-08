@@ -6,100 +6,91 @@
              x:DataType="local:ProfileViewModel"
              Title="Profile">
     <ScrollView>
-        <StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
-                <StackLayout 
-                    Orientation="Horizontal" 
-                    Margin="15,50,15,15" 
+        <StackLayout Padding="0">
+            <StackLayout 
+                Orientation="Horizontal" 
+                Margin="15,50,15,15" 
+                HorizontalOptions="Center">
+                <!--<Label Text="Username" VerticalOptions="Center" />-->
+                <Border Stroke="Transparent"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    Padding="16,8"
+                    BackgroundColor="#E2E0E9"
                     HorizontalOptions="Center">
-                    <!--<Label Text="Username" VerticalOptions="Center" />-->
-                    <Border Stroke="Transparent"
-                        StrokeThickness="4"
-                        StrokeShape="RoundRectangle 10,10,10,10"
-                        Padding="16,8"
-                        BackgroundColor="#E2E0E9"
-                        HorizontalOptions="Center">
-                        <Entry x:Name="ChooseUsername" 
-                            Placeholder="Username" 
-                            WidthRequest="300"
-                            Text="{Binding CurrentUser.Username}" 
-                            TextColor="#353535" Keyboard="Plain"
-                            MaxLength="20"
-                            IsEnabled="False" />
-                    </Border>
-                </StackLayout>
-                <StackLayout 
-                    Orientation="Horizontal" 
-                    Margin="15" 
-                    HorizontalOptions="Center">
-                    <!--<Label Text="Height" VerticalOptions="Center" />-->
-                    <Border Stroke="Transparent"
-                        StrokeThickness="4"
-                        StrokeShape="RoundRectangle 10,10,10,10"
-                        BackgroundColor="#E2E0E9"
-                        Padding="16,8"
-                        HorizontalOptions="Center">
-                        <Entry x:Name="ChooseUserHeight" 
-                            Placeholder="Height (cm)" 
-                            WidthRequest="300" 
-                            Text="{Binding CurrentUser.Height}" 
-                            TextColor="Black" 
-                            Keyboard="Numeric" 
-                            MaxLength="3" 
-                            IsEnabled="False" />
-                    </Border>
-
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="15" HorizontalOptions="Center">
-                    <!--<Label Text="Weight" VerticalOptions="Center" />-->
-                    <Border 
-                        Stroke="Transparent"
-                        StrokeThickness="4"
-                        StrokeShape="RoundRectangle 10,10,10,10"
-                        BackgroundColor="#E2E0E9"
-                        Padding="16,8"
-                        HorizontalOptions="Center">
-                        <Entry 
-                            x:Name="ChooseUserWeight" 
-                            Placeholder="Weight (kg)" 
-                            WidthRequest="300" 
-                            Text="{Binding CurrentUser.Weight}" 
-                            TextColor="Black" 
-                            Keyboard="Numeric" 
-                            MaxLength="3"
-                            IsEnabled="False" />
-                    </Border>
-
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" Margin="15" HorizontalOptions="Center">
-                    <!--<Label Text="Weight" VerticalOptions="Center" />-->
-                    <Border Stroke="Transparent"
-                        StrokeThickness="4"
-                        StrokeShape="RoundRectangle 10,10,10,10"
-                        BackgroundColor="#E2E0E9"
-                        Padding="16,8"
-                        HorizontalOptions="Center">
-                        <Entry x:Name="ChooseUserAge" 
-                            Placeholder="Age" 
-                            WidthRequest="300" 
-                            Text="{Binding CurrentUser.Age}" 
-                            TextColor="Black" 
-                            Keyboard="Numeric" 
-                            IsEnabled="False" />
-                    </Border>
-                </StackLayout>
+                    <Entry x:Name="ChooseUsername" 
+                        Placeholder="Username" 
+                        WidthRequest="300"
+                        Text="{Binding CurrentUser.Username}" 
+                        TextColor="#353535" Keyboard="Plain"
+                        MaxLength="20"
+                        IsEnabled="False" />
+                </Border>
             </StackLayout>
-            <StackLayout
+            <StackLayout 
+                Orientation="Horizontal" 
                 Margin="15" 
-                Padding="16,8" 
-                Orientation="Vertical" 
-                HorizontalOptions="Center" 
-                VerticalOptions="End">
-                <Button x:Name="btnSaveUser" 
-                    Text="Done"
-                    Clicked="OnSaveUser_Clicked" 
-                    WidthRequest="325" />
+                HorizontalOptions="Center">
+                <!--<Label Text="Height" VerticalOptions="Center" />-->
+                <Border Stroke="Transparent"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    BackgroundColor="#E2E0E9"
+                    Padding="16,8"
+                    HorizontalOptions="Center">
+                    <Entry x:Name="ChooseUserHeight" 
+                        Placeholder="Height (cm)" 
+                        WidthRequest="300" 
+                        Text="{Binding CurrentUser.Height}" 
+                        TextColor="Black" 
+                        Keyboard="Numeric" 
+                        MaxLength="3" 
+                        IsEnabled="False" />
+                </Border>
+
             </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15" HorizontalOptions="Center">
+                <!--<Label Text="Weight" VerticalOptions="Center" />-->
+                <Border 
+                    Stroke="Transparent"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    BackgroundColor="#E2E0E9"
+                    Padding="16,8"
+                    HorizontalOptions="Center">
+                    <Entry 
+                        x:Name="ChooseUserWeight" 
+                        Placeholder="Weight (kg)" 
+                        WidthRequest="300" 
+                        Text="{Binding CurrentUser.Weight}" 
+                        TextColor="Black" 
+                        Keyboard="Numeric" 
+                        MaxLength="3"
+                        IsEnabled="False" />
+                </Border>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="15" HorizontalOptions="Center">
+                <!--<Label Text="Weight" VerticalOptions="Center" />-->
+                <Border Stroke="Transparent"
+                    StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    BackgroundColor="#E2E0E9"
+                    Padding="16,8"
+                    HorizontalOptions="Center">
+                    <Entry x:Name="ChooseUserAge" 
+                        Placeholder="Age" 
+                        WidthRequest="300" 
+                        Text="{Binding CurrentUser.Age}" 
+                        TextColor="Black" 
+                        Keyboard="Numeric" 
+                        IsEnabled="False" />
+                </Border>
+            </StackLayout>
+            <Label FontSize="50" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+            <Button x:Name="btnSaveUser" 
+                        Text="Done"
+                        Clicked="OnSaveUser_Clicked" Margin="30" />
         </StackLayout>
     </ScrollView>
 </ContentPage>
