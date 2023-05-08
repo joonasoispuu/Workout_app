@@ -145,6 +145,24 @@ public partial class ProfilePage : ContentPage
                 });
                 return;
             }
+            if (height > 240)
+            {
+                await DisplayAlert("Error", "Too tall. Maximum height is 240(cm)", "OK");
+                Application.Current.Dispatcher.Dispatch(() =>
+                {
+                    ChooseUserWeight.Focus();
+                });
+                return;
+            }
+            else if (height < 120)
+            {
+                await DisplayAlert("Error", "Too short. Minimum height requirement is 120(cm)", "OK");
+                Application.Current.Dispatcher.Dispatch(() =>
+                {
+                    ChooseUserWeight.Focus();
+                });
+                return;
+            }
 
             int weight = 0;
             //Checks if ChooseUserWeight.Text is empty and the value is a number
@@ -161,6 +179,24 @@ public partial class ProfilePage : ContentPage
             if (!int.TryParse(ChooseUserWeight.Text, out weight))
             {
                 await DisplayAlert("Error", "Please only enter numbers in the weight field", "OK");
+                Application.Current.Dispatcher.Dispatch(() =>
+                {
+                    ChooseUserWeight.Focus();
+                });
+                return;
+            }
+            if (weight > 635)
+            {
+                await DisplayAlert("Error", "Too fat. Maximum weight is 635(kg)", "OK");
+                Application.Current.Dispatcher.Dispatch(() =>
+                {
+                    ChooseUserWeight.Focus();
+                });
+                return;
+            } 
+            else if (weight < 20) 
+            {
+                await DisplayAlert("Error", "Too light. Minimum weight requirement is 20(kg)", "OK");
                 Application.Current.Dispatcher.Dispatch(() =>
                 {
                     ChooseUserWeight.Focus();
@@ -223,6 +259,11 @@ public partial class ProfilePage : ContentPage
             _profileViewModel.SetUserDetails(user);
             btnSaveUser.Text = "Edit";
             new MyToast("Changes saved successfully").Display();
+
+            ChooseUsername.IsEnabled = false;
+            ChooseUserHeight.IsEnabled = false;
+            ChooseUserWeight.IsEnabled = false;
+            ChooseUserAge.IsEnabled = false;
         } else
         {
             ChooseUsername.IsEnabled = true;
